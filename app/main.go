@@ -31,11 +31,11 @@ func indexHandler(c *fiber.Ctx) error {
 	// Render index
 	return c.Render("pages/index", fiber.Map{
 		"Title": "Hello, World!",
-	})
+	}, "layouts/main")
 }
 
 func postIndexHandler(c *fiber.Ctx) error {
 	test := c.FormValue("test")
 	fmt.Println(test)
-	return c.SendString(test)
+	return c.Redirect("/")
 }
